@@ -1,5 +1,5 @@
 """Создание базы данных"""
-from peewee import SqliteDatabase, Model, TextField
+from peewee import SqliteDatabase, Model, TextField, ForeignKeyField
 db = SqliteDatabase('sqlite.db')
 class Datebase(Model):
     """Создание таблицы"""
@@ -9,10 +9,14 @@ class Datebase(Model):
 class Genres(Datebase):
     """Создание таблицы с жанрами"""
     Genre = TextField()
+    
 class Anime(Datebase):
     """Создание таблицы с аниме"""
     Anime = TextField()
     Link = TextField()
+    Genre = ForeignKeyField(Genres)
+
+
 class Test(Datebase):
     """Информация по аниме"""
     Type = TextField()
@@ -25,5 +29,5 @@ class Test(Datebase):
     Voiceover = TextField()
 
 db.connect()
-db.create_tables([Anime,Genres,Test], safe=True)
+db.create_tables([Genres,Anime,Test], safe=True)
 db.close()

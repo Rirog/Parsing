@@ -25,16 +25,15 @@ def all_spisok(url):
     voiceover = text[9:10]
     genre = allgenre.text
     Test.get_or_create(
-        Type = types,
-        Episodes = episodes,
-        Status = status,
-        Genre = genre,
-        Origin = origin,
-        Agelimit = agelimit,
-        Studio = studio,
-        Voiceover = voiceover,
+        Type=types,
+        Episodes=episodes,
+        Status=status,
+        Genre=genre,
+        Origin=origin,
+        Agelimit=agelimit,
+        Studio=studio,
+        Voiceover=voiceover,
     )
 
-#print()
-url2 = ('https://animego.org/anime/novye-vrata-2583')
-all_spisok(url2)
+
+all_spisok('https://animego.org/anime/novye-vrata-2583')
